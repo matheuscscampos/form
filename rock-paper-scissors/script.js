@@ -18,34 +18,41 @@ let playRound = function (playerSelection, computerSelection){
     }
     else if (playerSelection == dict[computerSelection]){
         console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
-        return  -1;
+        return  ++computerScore;
     }
     else {
         console.log(`You won! ${playerSelection} beats ${computerSelection}`)
-        return 1;
+        return ++playerScore;
     }
 }
 
+let playerScore = 0;
+let computerScore = 0;
+
 let game = function() {
-    score = 0
-    for (let i=0; i<5; i++) {
-        let computerSelection = getComputerChoice(choiceOption);
-        let playerSelection = prompt("What's your choice?");
-        score = score + playRound(playerSelection, computerSelection);
-    }
+    let computerSelection = getComputerChoice(choiceOption);
+    playRound(playerSelection, computerSelection);
+    player.textContent = playerScore;
+    computer.textContent = computerScore;
     checkWinner();
 }
 
 let checkWinner = function(){
-    if (score > 0){
-        console.log('You won!');
+    if (playerScore > 4){
+        alert('You won!');
     }
-    else if (score == 0){
-        console.log('Draw!');
-    }
-    else {
-        console.log('You lost!');
+    else if (computerScore >4){
+        alert('You lost!');
     }
 }
 
-game();
+const btn = document.querySelectorAll('.btn-play');
+const player = document.querySelector('.player-score');
+const computer = document.querySelector('.computer-score');
+
+btn.forEach(item => {
+    item.addEventListener('click', event => {
+    playerSelection = event.target.innerHTML;
+    game();
+    })
+})
