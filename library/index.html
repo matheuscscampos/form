@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Matheus' Library</title>
+</head>
+<body>
+  <div class="form" id="form">
+    <div class="header">
+      <div> Header </div>
+      <button close-button class="close">&times;</button>
+    </div>
+    <form action="" method="post">
+      <ul>
+        <li>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" />
+        </li>
+        <li>
+          <label for="author">Author:</label>
+          <input type="author" id="author" name="author" />
+        </li>
+        <li>
+          <label for="pgs">Pages:</label>
+          <input id="pgs" name="pgs"></input>
+        </li>
+      </ul>
+      <input type="submit" onclick="addBookToLibrary(event)" value="Add Book" class="send close" id="send"/>
+    </form>
+    </div>
+  </div>
+  <div id="overlay"></div>
+</body>
+</html>
