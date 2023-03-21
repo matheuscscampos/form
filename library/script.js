@@ -16,8 +16,6 @@ myLibrary.splice(id_delete, 1);
 show();
 }
 
-
-
 let body = document.querySelector('body');
 let container = document.createElement('div');
 container.classList.add('container')
